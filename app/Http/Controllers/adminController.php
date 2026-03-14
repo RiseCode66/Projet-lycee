@@ -269,8 +269,7 @@ class adminController extends Controller
         $errors = new MessageBag(); // MessageBag compatible Blade
 
         foreach ($records as $i => $record) {
-            $ide = intval(str_replace('ELV00','',$record['matricule']));
-
+            $ide = intval(str_ireplace('ELV00','',$record['matricule']));
             // Trouver la matière (en minuscules pour éviter problèmes d'accents)
             $matiere = Matiere::whereRaw('LOWER(nom) = ?', [mb_strtolower($record['matiere'], 'UTF-8')])->first();
             if (!$matiere) {
@@ -305,7 +304,6 @@ class adminController extends Controller
                 }
                 echo "Ligne ".($i+1).$msg;
                 die;
-                continue;
             }
             $note = new Note();
             $note->ide=$data['ide'];
@@ -313,6 +311,7 @@ class adminController extends Controller
             $note->idex=$data['idex'];
             $note->valeur=$data['valeur'];
             $note->saveMe($note);
+            echo $note->ide;
         }
 
         if ($errors->any()) {

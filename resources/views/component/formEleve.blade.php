@@ -2,25 +2,6 @@
 @section('content')
 <!-- Bloc d’import CSV séparé -->
 <div class="card border shadow-sm">
-    <div class="card-body">
-        <h5 class="card-title">Importer des élèves via CSV</h5>
-
-        <form action="/eleve" method="get" enctype="multipart/form-data">
-            @csrf
-            <div class="mb-3">
-                <label for="csv_file" class="form-label">Fichier CSV</label>
-                <input type="file" name="csv_file" id="csv_file" class="form-control" accept=".csv" required>
-            </div>
-
-            <div class="text-center">
-                <button type="submit" class="btn btn-primary">
-                    <i class="bi bi-upload"></i> Importer CSV
-                </button>
-            </div>
-        </form>
-    </div>
-</div>
-
 <div class="card">
     <div class="card-body">
       <h5 class="card-title">Ajouter un élève</h5>

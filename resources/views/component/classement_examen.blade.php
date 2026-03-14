@@ -17,7 +17,7 @@
                     @else
                     @foreach ($myItems[0] as $item)
                     <tr>
-                    <td>{{ $item['nom'] }} {{ $item['prenom'] }}</td>
+                    <td>{{ $item->nom }} {{ $item->prenom }}</td>
 
                     <td>{{ number_format($item->moyenne,2) }}</td>
                     <td>

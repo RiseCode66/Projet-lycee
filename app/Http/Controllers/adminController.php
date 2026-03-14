@@ -675,7 +675,7 @@ class adminController extends Controller
     }
     public function classement_examen(Request $req){
         $e=new stats();
-        $myItems=[$e->classement_etu_examen($req->idEX,$req->idN),exam::find($req->idEX),$req->idN,niveau::find($req->idN)];
+        $myItems=[$e->classement_etu_examen($req->idEX,$req->idN)['results'],exam::find($req->idEX),$req->idN,niveau::find($req->idN)];
         return view('component.classement_examen',compact('myItems'));
     }
     public function classement_periode(Request $req){
